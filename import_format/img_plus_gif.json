@@ -1,6 +1,6 @@
 {
-  "last_node_id": 44,
-  "last_link_id": 71,
+  "last_node_id": 45,
+  "last_link_id": 72,
   "nodes": [
     {
       "id": 21,
@@ -34,46 +34,6 @@
           "type": "IMAGE",
           "links": [
             23
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      }
-    },
-    {
-      "id": 13,
-      "type": "VAEDecode",
-      "pos": [
-        2301.430569609377,
-        185.71587358917262
-      ],
-      "size": {
-        "0": 210,
-        "1": 46
-      },
-      "flags": {},
-      "order": 24,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 15
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 45
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            17
           ],
           "slot_index": 0
         }
@@ -353,32 +313,6 @@
       "properties": {
         "Node name for S&R": "VAEEncode"
       }
-    },
-    {
-      "id": 12,
-      "type": "SaveImage",
-      "pos": [
-        2556.470075000002,
-        183.27204973388686
-      ],
-      "size": {
-        "0": 868.0108642578125,
-        "1": 936.9744873046875
-      },
-      "flags": {},
-      "order": 25,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 17
-        }
-      ],
-      "properties": {},
-      "widgets_values": [
-        "ComfyUI"
-      ]
     },
     {
       "id": 29,
@@ -891,7 +825,7 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "AnimateDiff_00004.gif",
+            "filename": "AnimateDiff_00001.gif",
             "subfolder": "",
             "type": "temp",
             "format": "image/gif"
@@ -983,7 +917,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        733779670338929,
+        284259091715206,
         "randomize",
         20,
         7,
@@ -1046,7 +980,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        343003328780171,
+        706159800423683,
         "randomize",
         14,
         7,
@@ -1054,6 +988,46 @@
         "karras",
         0.4
       ]
+    },
+    {
+      "id": 13,
+      "type": "VAEDecode",
+      "pos": [
+        2301.430569609377,
+        185.71587358917262
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 24,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 15
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 45
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            72
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
     },
     {
       "id": 39,
@@ -1068,7 +1042,7 @@
       },
       "flags": {},
       "order": 14,
-      "mode": 0,
+      "mode": 4,
       "inputs": [
         {
           "name": "model",
@@ -1121,6 +1095,46 @@
         "karras",
         1
       ]
+    },
+    {
+      "id": 45,
+      "type": "Image Save",
+      "pos": [
+        2603,
+        169
+      ],
+      "size": [
+        774.9541667968756,
+        966.1433481445317
+      ],
+      "flags": {},
+      "order": 25,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 72
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Image Save"
+      },
+      "widgets_values": [
+        "[time(%Y-%m-%d)]",
+        "",
+        "_",
+        4,
+        "false",
+        "jpg",
+        100,
+        "false",
+        "false",
+        "false",
+        "true",
+        "false",
+        "true"
+      ]
     }
   ],
   "links": [
@@ -1147,14 +1161,6 @@
       13,
       0,
       "LATENT"
-    ],
-    [
-      17,
-      13,
-      0,
-      12,
-      0,
-      "IMAGE"
     ],
     [
       18,
@@ -1427,6 +1433,14 @@
       39,
       4,
       "INT"
+    ],
+    [
+      72,
+      13,
+      0,
+      45,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [

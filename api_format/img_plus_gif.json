@@ -1,0 +1,354 @@
+{
+  "3": {
+    "inputs": {
+      "seed": 480225952696270,
+      "steps": 20,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "34",
+        0
+      ],
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "36",
+        0
+      ],
+      "latent_image": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "KSampler"
+  },
+  "5": {
+    "inputs": {
+      "width": 544,
+      "height": 672,
+      "batch_size": 8
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "8": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "11": {
+    "inputs": {
+      "seed": 216165878688940,
+      "steps": 14,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 0.4,
+      "model": [
+        "34",
+        0
+      ],
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "36",
+        0
+      ],
+      "latent_image": [
+        "20",
+        0
+      ]
+    },
+    "class_type": "KSampler"
+  },
+  "13": {
+    "inputs": {
+      "samples": [
+        "11",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "20": {
+    "inputs": {
+      "pixels": [
+        "26",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "VAEEncode"
+  },
+  "21": {
+    "inputs": {
+      "samples": [
+        "3",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "22": {
+    "inputs": {
+      "upscale_model": [
+        "23",
+        0
+      ],
+      "image": [
+        "21",
+        0
+      ]
+    },
+    "class_type": "ImageUpscaleWithModel"
+  },
+  "23": {
+    "inputs": {
+      "model_name": "4x-UltraSharp.pth"
+    },
+    "class_type": "UpscaleModelLoader"
+  },
+  "25": {
+    "inputs": {
+      "ckpt_name": "aniverse_v15Pruned.safetensors"
+    },
+    "class_type": "CheckpointLoaderSimple"
+  },
+  "26": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 0.6,
+      "image": [
+        "22",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy"
+  },
+  "27": {
+    "inputs": {
+      "stop_at_clip_layer": -2,
+      "clip": [
+        "25",
+        1
+      ]
+    },
+    "class_type": "CLIPSetLastLayer"
+  },
+  "28": {
+    "inputs": {
+      "vae_name": "vae-ft-mse-840000-ema-pruned.safetensors"
+    },
+    "class_type": "VAELoader"
+  },
+  "29": {
+    "inputs": {
+      "images": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "PreviewImage"
+  },
+  "32": {
+    "inputs": {
+      "string": "by dino,  by reiko, by oda non 1girl, detailed face,   a female barbarian , , insanely detailed and intricate     dark shadows,   gradient cinematic light epic shot action pose beautiful  molten, cave  masterpiece, best quality, high quality,"
+    },
+    "class_type": "String to Text"
+  },
+  "33": {
+    "inputs": {
+      "string": "embedding:easynegative <badhandv4>, <veryBadImageNegative_v1.3>, low quality, bad skin, bad hands, fused fingers, deformed fingers"
+    },
+    "class_type": "String to Text"
+  },
+  "34": {
+    "inputs": {
+      "text": [
+        "32",
+        0
+      ],
+      "model": [
+        "25",
+        0
+      ],
+      "clip": [
+        "27",
+        0
+      ]
+    },
+    "class_type": "LoraTagLoader"
+  },
+  "35": {
+    "inputs": {
+      "text": [
+        "34",
+        2
+      ],
+      "clip": [
+        "34",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "36": {
+    "inputs": {
+      "text": [
+        "33",
+        0
+      ],
+      "clip": [
+        "34",
+        1
+      ]
+    },
+    "class_type": "CLIPTextEncode"
+  },
+  "37": {
+    "inputs": {
+      "model_name": "mm_sd_v15_v2.ckpt",
+      "beta_schedule": "sqrt_linear (AnimateDiff)",
+      "motion_scale": 1,
+      "apply_v2_models_properly": true,
+      "model": [
+        "34",
+        0
+      ]
+    },
+    "class_type": "ADE_AnimateDiffLoaderWithContext"
+  },
+  "38": {
+    "inputs": {
+      "width": 544,
+      "height": 672,
+      "batch_size": 32
+    },
+    "class_type": "EmptyLatentImage"
+  },
+  "39": {
+    "inputs": {
+      "seed": 88888889,
+      "steps": 50,
+      "cfg": 7,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 1,
+      "model": [
+        "37",
+        0
+      ],
+      "positive": [
+        "35",
+        0
+      ],
+      "negative": [
+        "36",
+        0
+      ],
+      "latent_image": [
+        "38",
+        0
+      ]
+    },
+    "class_type": "KSampler"
+  },
+  "40": {
+    "inputs": {
+      "samples": [
+        "39",
+        0
+      ],
+      "vae": [
+        "28",
+        0
+      ]
+    },
+    "class_type": "VAEDecode"
+  },
+  "41": {
+    "inputs": {
+      "frame_rate": 12,
+      "loop_count": 0,
+      "filename_prefix": "AnimateDiff",
+      "format": "image/gif",
+      "pingpong": false,
+      "save_image": false,
+      "crf": 20,
+      "save_metadata": false,
+      "audio_file": "",
+      "videopreview": {
+        "hidden": false,
+        "paused": false,
+        "params": {
+          "filename": "AnimateDiff_00008.gif",
+          "subfolder": "",
+          "type": "temp",
+          "format": "image/gif"
+        }
+      },
+      "images": [
+        "40",
+        0
+      ]
+    },
+    "class_type": "VHS_VideoCombine"
+  },
+  "45": {
+    "inputs": {
+      "output_path": "[time(%Y-%m-%d)]",
+      "filename_prefix": "",
+      "filename_delimiter": "_",
+      "filename_number_padding": 4,
+      "filename_number_start": "false",
+      "extension": "jpg",
+      "quality": 100,
+      "lossless_webp": "false",
+      "overwrite_mode": "false",
+      "show_history": "false",
+      "show_history_by_prefix": "true",
+      "embed_workflow": "false",
+      "show_previews": "true",
+      "images": [
+        "46",
+        0
+      ]
+    },
+    "class_type": "Image Save"
+  },
+  "46": {
+    "inputs": {
+      "upscale_method": "nearest-exact",
+      "scale_by": 1.6,
+      "image": [
+        "13",
+        0
+      ]
+    },
+    "class_type": "ImageScaleBy"
+  }
+}
