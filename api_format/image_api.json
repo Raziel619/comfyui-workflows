@@ -30,7 +30,7 @@
     "inputs": {
       "width": 544,
       "height": 672,
-      "batch_size": 8
+      "batch_size": 2
     },
     "class_type": "EmptyLatentImage"
   },
